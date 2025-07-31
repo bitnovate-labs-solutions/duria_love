@@ -1,8 +1,19 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Star } from "lucide-react";
-const heroImage = "https://images.unsplash.com/photo-1718942899770-25f5802a9a8f?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
+import { ArrowRight, Star, X } from "lucide-react";
+import { Link } from "react-router-dom";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
+const heroImage =
+  "https://images.unsplash.com/photo-1718942899770-25f5802a9a8f?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
 
 export const Hero = () => {
+  const [isVideoOpen, setIsVideoOpen] = useState(false);
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
@@ -12,11 +23,11 @@ export const Hero = () => {
           alt="Premium durian selection"
           className="w-full h-full object-cover object-center"
           style={{
-            imageRendering: 'crisp-edges',
-            filter: 'contrast(1.1) brightness(1.05) saturate(1.1)',
-            transform: 'scale(1.02)',
-            backfaceVisibility: 'hidden',
-            WebkitBackfaceVisibility: 'hidden'
+            imageRendering: "crisp-edges",
+            filter: "contrast(1.1) brightness(1.05) saturate(1.1)",
+            transform: "scale(1.02)",
+            backfaceVisibility: "hidden",
+            WebkitBackfaceVisibility: "hidden",
           }}
         />
         <div className="absolute inset-0 bg-gradient-hero"></div>
@@ -50,14 +61,18 @@ export const Hero = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Button
               size="lg"
-              className="bg-primary text-primary-foreground hover:bg-primary-glow shadow-premium text-lg px-8 py-6 h-auto"
+              asChild
+              className="bg-primary text-yellow-50 hover:bg-primary-glow shadow-premium text-lg px-8 py-6 h-auto"
             >
-              Explore Our Collection
-              <ArrowRight className="ml-2 h-5 w-5" />
+              <Link to="/shop">
+                Explore Our Collection
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Link>
             </Button>
             <Button
               size="lg"
               variant="outline"
+              onClick={() => setIsVideoOpen(true)}
               className="bg-background/10 text-background border-background/30 hover:bg-background/20 backdrop-blur-sm text-lg px-8 py-6 h-auto"
             >
               Watch Our Story
@@ -88,6 +103,30 @@ export const Hero = () => {
           <div className="w-1 h-3 bg-primary-glow rounded-full mt-2 animate-bounce"></div>
         </div>
       </div>
+
+      {/* Video Modal */}
+      <Dialog open={isVideoOpen} onOpenChange={setIsVideoOpen}>
+        <DialogContent className="max-w-4xl w-[90vw] p-0 bg-black">
+          <DialogHeader className="p-4 pb-0">
+            <DialogTitle className="text-white text-xl font-semibold">
+              Our Story
+            </DialogTitle>
+          </DialogHeader>
+          <div className="relative w-full aspect-video">
+            <iframe
+              width="100%"
+              height="100%"
+              src="https://www.youtube.com/embed/B-ouf-qApPo?si=NIAEh9l2XhKacHXe&autoplay=1&mute=1"
+              title="YouTube video player"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
+              className="absolute inset-0 w-full h-full"
+            />
+          </div>
+        </DialogContent>
+      </Dialog>
     </section>
   );
 };

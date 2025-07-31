@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -10,7 +10,7 @@ import { useToast } from "@/hooks/use-toast";
 const resellers = [
   {
     name: "Premium Asian Markets",
-    logo: "https://images.unsplash.com/photo-1486312338219-ce6862f44a7?auto=format&fit=crop&w=200&q=80",
+    logo: "https://media.says.com/2025/03/E1fm537N-65a0.jpg",
     location: "Singapore",
     phone: "+65 6234 5678",
     website: "www.premiumasian.sg",
@@ -18,7 +18,7 @@ const resellers = [
   },
   {
     name: "Golden Dragon Imports",
-    logo: "https://images.unsplash.com/photo-1497604401993-f2e92255cb0a?auto=format&fit=crop&w=200&q=80",
+    logo: "https://media.says.com/2025/03/E1fm537N-65a0.jpg",
     location: "Hong Kong",
     phone: "+852 2345 6789",
     website: "www.goldendragon.hk",
@@ -26,7 +26,7 @@ const resellers = [
   },
   {
     name: "Sakura Fresh Foods",
-    logo: "https://images.unsplash.com/photo-1518495973542-4542c06a5843?auto=format&fit=crop&w=200&q=80",
+    logo: "https://media.says.com/2025/03/E1fm537N-65a0.jpg",
     location: "Tokyo, Japan",
     phone: "+81 3 1234 5678",
     website: "www.sakurafresh.jp",
@@ -34,7 +34,7 @@ const resellers = [
   },
   {
     name: "Australia Exotic Fruits",
-    logo: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=200&q=80",
+    logo: "https://media.says.com/2025/03/E1fm537N-65a0.jpg",
     location: "Sydney, Australia",
     phone: "+61 2 9876 5432",
     website: "www.exoticfruits.com.au",
@@ -43,6 +43,11 @@ const resellers = [
 ];
 
 const WhereToBuy = () => {
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -89,8 +94,8 @@ const WhereToBuy = () => {
               Where to Buy
             </h1>
             <p className="text-xl leading-relaxed">
-              Find Duria premium products at these trusted retailers
-              worldwide, or inquire about hosting your own durian tasting party.
+              Find Duria premium products at these trusted retailers worldwide,
+              or inquire about hosting your own durian tasting party.
             </p>
           </div>
         </div>
@@ -275,7 +280,11 @@ const WhereToBuy = () => {
                     />
                   </div>
 
-                  <Button type="submit" size="lg" className="w-full">
+                  <Button
+                    type="submit"
+                    size="lg"
+                    className="w-full text-yellow-50"
+                  >
                     <Mail className="h-4 w-4 mr-2" />
                     Submit Inquiry
                   </Button>

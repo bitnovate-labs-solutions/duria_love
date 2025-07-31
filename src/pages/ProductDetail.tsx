@@ -1,4 +1,5 @@
 import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
@@ -30,8 +31,8 @@ const productDetails: Record<string, ProductDetail> = {
   "musang-king-whole": {
     title: "Premium Musang King",
     images: [
-      "https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?auto=format&fit=crop&w=800&q=80",
-      "https://images.unsplash.com/photo-1486312338219-ce6862f44a7?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1562486683-67d4d5886f99?q=80&w=1550&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://media.says.com/2025/03/E1fm537N-65a0.jpg",
     ],
     price: "RM 389.99/kg",
     description:
@@ -57,11 +58,163 @@ const productDetails: Record<string, ProductDetail> = {
     origin: "Pahang, Malaysia - Premium orchards",
     certifications: ["Halal Certified", "HACCP", "ISO 22000"],
   },
+  "d24-whole": {
+    title: "D24 Sultan",
+    images: [
+      "https://topduriandelivery.com/wp-content/uploads/2021/07/Musang-King-D197-2-musang-king-d-24-tip-top-durian-delivery.jpg",
+      "https://topduriandelivery.com/wp-content/uploads/2021/07/Musang-King-D197-2-musang-king-d-24-tip-top-durian-delivery.jpg",
+    ],
+    price: "RM 285.99/kg",
+    description:
+      "Sweet and creamy with a hint of bitterness, perfect for durian enthusiasts. D24 Sultan is known for its distinctive golden-yellow flesh and rich, complex flavor.",
+    category: "Whole Fruits",
+    rating: 5,
+    inStock: true,
+    nutritionalInfo: {
+      calories: "147 per 100g",
+      carbs: "27.1g",
+      fiber: "3.8g",
+      protein: "1.5g",
+      fat: "5.3g",
+    },
+    benefits: [
+      "Rich in Vitamin C and antioxidants",
+      "Good source of potassium and dietary fiber",
+      "Contains healthy monounsaturated fats",
+      "Natural energy booster",
+    ],
+    packaging: "1kg, 2kg, 5kg vacuum-sealed packages available",
+    origin: "Johor, Malaysia - Premium orchards",
+    certifications: ["Halal Certified", "HACCP", "ISO 22000"],
+  },
+  "tekka-whole": {
+    title: "Tekka Premium",
+    images: [
+      "https://images.unsplash.com/photo-1518495973542-4542c06a5843?auto=format&fit=crop&w=600&q=80",
+      "https://images.unsplash.com/photo-1518495973542-4542c06a5843?auto=format&fit=crop&w=600&q=80",
+    ],
+    price: "RM 242.99/kg",
+    description:
+      "Distinctive orange flesh with sweet, custard-like consistency. Tekka Premium offers a unique flavor profile that's both sweet and slightly nutty.",
+    category: "Whole Fruits",
+    rating: 4,
+    inStock: true,
+    nutritionalInfo: {
+      calories: "147 per 100g",
+      carbs: "27.1g",
+      fiber: "3.8g",
+      protein: "1.5g",
+      fat: "5.3g",
+    },
+    benefits: [
+      "Rich in Vitamin C and antioxidants",
+      "Good source of potassium and dietary fiber",
+      "Contains healthy monounsaturated fats",
+      "Natural energy booster",
+    ],
+    packaging: "1kg, 2kg, 5kg vacuum-sealed packages available",
+    origin: "Pahang, Malaysia - Premium orchards",
+    certifications: ["Halal Certified", "HACCP", "ISO 22000"],
+  },
+  "musang-king-pulp": {
+    title: "Musang King Pulp",
+    images: [
+      "https://sb-assets.sgp1.cdn.digitaloceanspaces.com/product/main_image/34528/92c1c83c-7850-4fbc-86ca-cc020b504b47.jfif",
+      "https://sb-assets.sgp1.cdn.digitaloceanspaces.com/product/main_image/34528/92c1c83c-7850-4fbc-86ca-cc020b504b47.jfif",
+    ],
+    price: "RM 199.99/pack",
+    description:
+      "Ready-to-eat premium pulp, perfect for desserts and direct consumption. This convenient format preserves all the rich flavors of Musang King.",
+    category: "Pulps",
+    rating: 5,
+    inStock: true,
+    nutritionalInfo: {
+      calories: "147 per 100g",
+      carbs: "27.1g",
+      fiber: "3.8g",
+      protein: "1.5g",
+      fat: "5.3g",
+    },
+    benefits: [
+      "Rich in Vitamin C and antioxidants",
+      "Good source of potassium and dietary fiber",
+      "Contains healthy monounsaturated fats",
+      "Natural energy booster",
+    ],
+    packaging: "250g, 500g, 1kg vacuum-sealed packages",
+    origin: "Pahang, Malaysia - Premium orchards",
+    certifications: ["Halal Certified", "HACCP", "ISO 22000"],
+  },
+  "durian-ice-cream": {
+    title: "Artisan Durian Ice Cream",
+    images: [
+      "https://www.thespruceeats.com/thmb/xelwSSdQ-Wt0GV_3B98g3ZGE5vs=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/durian-ice-cream-694424-7937ac06874346fdb6482f87946f364b.jpg",
+      "https://images.unsplash.com/photo-1653565922895-4c08e12ea9f5?q=80&w=928&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    ],
+    price: "RM 56.99/pint",
+    description:
+      "Creamy premium ice cream made with authentic Musang King durian. A perfect blend of traditional durian flavor and modern ice cream craftsmanship.",
+    category: "Consumables",
+    rating: 5,
+    inStock: true,
+    isNew: true,
+    nutritionalInfo: {
+      calories: "280 per 100g",
+      carbs: "25g",
+      fiber: "2g",
+      protein: "4g",
+      fat: "18g",
+    },
+    benefits: [
+      "Made with real durian pulp",
+      "No artificial flavors or colors",
+      "Rich and creamy texture",
+      "Perfect for durian lovers",
+    ],
+    packaging: "473ml (1 pint) containers",
+    origin: "Malaysia - Artisan ice cream production",
+    certifications: ["Halal Certified", "HACCP", "ISO 22000"],
+  },
+  "durian-mochi": {
+    title: "Durian Mochi Box",
+    images: [
+      "https://duria.com.my/wp-content/uploads/2020/04/Durian-Mochi-Front-Box.jpg",
+      "https://images.unsplash.com/photo-1653565922895-4c08e12ea9f5?q=80&w=928&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    ],
+    price: "RM 108.99/box",
+    description:
+      "Traditional Japanese mochi filled with premium durian paste. A perfect fusion of Japanese tradition and Malaysian durian excellence.",
+    category: "Consumables",
+    rating: 4,
+    inStock: false,
+    nutritionalInfo: {
+      calories: "120 per piece",
+      carbs: "22g",
+      fiber: "1g",
+      protein: "2g",
+      fat: "3g",
+    },
+    benefits: [
+      "Traditional mochi texture",
+      "Premium durian filling",
+      "Perfect bite-sized treats",
+      "Great for gifting",
+    ],
+    packaging: "12 pieces per box",
+    origin: "Malaysia - Artisan mochi production",
+    certifications: ["Halal Certified", "HACCP", "ISO 22000"],
+  },
 };
 
 const ProductDetail = () => {
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const { productId } = useParams<{ productId: string }>();
   const product = productDetails[productId || ""];
+  const [selectedImageIndex, setSelectedImageIndex] = useState(0);
 
   if (!product) {
     return (
@@ -84,7 +237,7 @@ const ProductDetail = () => {
           <div className="space-y-4">
             <div className="aspect-square overflow-hidden rounded-lg">
               <img
-                src={product.images[0]}
+                src={product.images[selectedImageIndex]}
                 alt={product.title}
                 className="w-full h-full object-cover"
               />
@@ -93,12 +246,17 @@ const ProductDetail = () => {
               {product.images.map((image: string, index: number) => (
                 <div
                   key={index}
-                  className="aspect-square overflow-hidden rounded-lg border"
+                  className={`aspect-square overflow-hidden rounded-lg border cursor-pointer transition-all ${
+                    selectedImageIndex === index
+                      ? "border-primary ring-2 ring-primary/20"
+                      : "border-border hover:border-primary/50"
+                  }`}
+                  onClick={() => setSelectedImageIndex(index)}
                 >
                   <img
                     src={image}
                     alt={`${product.title} ${index + 1}`}
-                    className="w-full h-full object-cover cursor-pointer hover:opacity-80 transition-opacity"
+                    className="w-full h-full object-cover hover:opacity-80 transition-opacity"
                   />
                 </div>
               ))}

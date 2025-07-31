@@ -28,7 +28,7 @@ export const ProductCard = ({
   isNew = false,
 }: ProductCardProps) => {
   return (
-    <Card className="group hover:shadow-card transition-all duration-300 overflow-hidden border-0 bg-card">
+    <Card className="group transition-all duration-300 overflow-hidden border-0 bg-card shadow-lg hover:shadow-xl">
       <div className="relative overflow-hidden">
         <img
           src={image}
@@ -74,17 +74,17 @@ export const ProductCard = ({
           {description}
         </p>
 
-        <div className="flex items-center justify-between">
+        <div className="space-y-4">
           {price && (
             <div className="text-lg font-bold text-primary">{price}</div>
           )}
-          <div className="flex gap-2 ml-auto">
-            <Button variant="outline" size="sm" asChild>
+          <div className="flex gap-2">
+            <Button variant="outline" size="sm" asChild className="flex-1">
               <Link to={`/shop/product/${id}`}>View Details</Link>
             </Button>
             {inStock && (
               <Button size="sm" className="bg-primary hover:bg-primary-glow">
-                <ShoppingCart className="h-4 w-4" />
+                <ShoppingCart className="h-4 w-4 text-yellow-50" />
               </Button>
             )}
           </div>

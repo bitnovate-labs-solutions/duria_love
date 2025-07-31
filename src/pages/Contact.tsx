@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -8,6 +8,11 @@ import { Mail, Phone, MapPin, Clock } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 const Contact = () => {
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -104,7 +109,11 @@ const Contact = () => {
                     />
                   </div>
 
-                  <Button type="submit" size="lg" className="w-full">
+                  <Button
+                    type="submit"
+                    size="lg"
+                    className="w-full text-yellow-100"
+                  >
                     <Mail className="h-4 w-4 mr-2" />
                     Send Message
                   </Button>
@@ -131,12 +140,8 @@ const Contact = () => {
                       </div>
                       <div>
                         <h3 className="font-semibold mb-2">Email Us</h3>
-                        <p className="text-muted-foreground">
-                          info@duria.com
-                        </p>
-                        <p className="text-muted-foreground">
-                          sales@duria.com
-                        </p>
+                        <p className="text-muted-foreground">info@duria.com</p>
+                        <p className="text-muted-foreground">sales@duria.com</p>
                       </div>
                     </div>
                   </CardContent>

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ProductCard } from "@/components/ui/product-card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -15,8 +15,7 @@ const products = [
   {
     id: "musang-king-whole",
     title: "Premium Musang King",
-    image:
-      "https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?auto=format&fit=crop&w=600&q=80",
+    image: "https://media.says.com/2025/03/E1fm537N-65a0.jpg",
     price: "RM 389.99/kg",
     description:
       "The crown jewel of durians with rich, creamy texture and complex flavor profile.",
@@ -29,7 +28,7 @@ const products = [
     id: "d24-whole",
     title: "D24 Sultan",
     image:
-      "https://images.unsplash.com/photo-1486312338219-ce6862f44a7?auto=format&fit=crop&w=600&q=80",
+      "https://topduriandelivery.com/wp-content/uploads/2021/07/Musang-King-D197-2-musang-king-d-24-tip-top-durian-delivery.jpg",
     price: "RM 285.99/kg",
     description:
       "Sweet and creamy with a hint of bitterness, perfect for durian enthusiasts.",
@@ -53,7 +52,7 @@ const products = [
     id: "musang-king-pulp",
     title: "Musang King Pulp",
     image:
-      "https://images.unsplash.com/photo-1497604401993-f2e92255cb0a?auto=format&fit=crop&w=600&q=80",
+      "https://sb-assets.sgp1.cdn.digitaloceanspaces.com/product/main_image/34528/92c1c83c-7850-4fbc-86ca-cc020b504b47.jfif",
     price: "RM 199.99/pack",
     description:
       "Ready-to-eat premium pulp, perfect for desserts and direct consumption.",
@@ -65,7 +64,7 @@ const products = [
     id: "durian-ice-cream",
     title: "Artisan Durian Ice Cream",
     image:
-      "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=600&q=80",
+      "https://www.thespruceeats.com/thmb/xelwSSdQ-Wt0GV_3B98g3ZGE5vs=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/durian-ice-cream-694424-7937ac06874346fdb6482f87946f364b.jpg",
     price: "RM 56.99/pint",
     description:
       "Creamy premium ice cream made with authentic Musang King durian.",
@@ -78,7 +77,7 @@ const products = [
     id: "durian-mochi",
     title: "Durian Mochi Box",
     image:
-      "https://images.unsplash.com/photo-1721322800607-8c38375eef04?auto=format&fit=crop&w=600&q=80",
+      "https://duria.com.my/wp-content/uploads/2020/04/Durian-Mochi-Front-Box.jpg",
     price: "RM 108.99/box",
     description: "Traditional Japanese mochi filled with premium durian paste.",
     category: "Consumables",
@@ -99,6 +98,11 @@ const Shop = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [sortBy, setSortBy] = useState("featured");
+
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const filteredProducts = products.filter((product) => {
     const matchesSearch =

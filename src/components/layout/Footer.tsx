@@ -12,14 +12,14 @@ export const Footer = () => {
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
               <div className="h-8 w-8 rounded-full bg-gradient-primary"></div>
-                              <span className="text-xl font-bold">Duria</span>
+              <span className="text-xl font-bold">Duria</span>
             </div>
             <p className="text-sm text-secondary-foreground/80">
               Premium durian export company bringing the finest quality durians
               to the world.
             </p>
             <div className="space-y-2 text-sm">
-                              <p>Duria Exports Sdn Bhd</p>
+              <p>Duria Exports Sdn Bhd</p>
               <p>Registration No: 202401234567</p>
               <p>GST No: 001234567890</p>
             </div>
@@ -115,7 +115,7 @@ export const Footer = () => {
                 />
                 <Button
                   size="sm"
-                  className="bg-primary text-primary-foreground hover:bg-primary-glow"
+                  className="bg-primary text-yellow-100 hover:bg-primary-glow"
                 >
                   Subscribe
                 </Button>
@@ -133,7 +133,7 @@ export const Footer = () => {
               </div>
             </div>
             <div className="text-sm space-y-1">
-                              <p>📧 info@duria.com</p>
+              <p>📧 info@duria.com</p>
               <p>📞 +60 3-1234 5678</p>
               <p>📍 Kuala Lumpur, Malaysia</p>
             </div>
@@ -141,7 +141,7 @@ export const Footer = () => {
         </div>
 
         <div className="border-t border-secondary-foreground/20 mt-8 pt-8 text-center text-sm">
-                          <p>&copy; 2024 Duria Exports Sdn Bhd. All rights reserved.</p>
+          <p>&copy; 2024 Duria Exports Sdn Bhd. All rights reserved.</p>
         </div>
       </div>
     </footer>

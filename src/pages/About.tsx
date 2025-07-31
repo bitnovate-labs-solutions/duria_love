@@ -1,20 +1,21 @@
+import { useEffect } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { MapPin, Users, Award, Globe } from "lucide-react";
 
 const founders = [
   {
-    name: "Dato' Ahmad Zulkifli",
+    name: "Mr. John",
     role: "Founder & CEO",
     image:
-      "https://images.unsplash.com/photo-1486312338219-ce6862f44a7?auto=format&fit=crop&w=400&q=80",
+      "https://platform.theverge.com/wp-content/uploads/sites/2/chorus/uploads/chorus_asset/file/24510842/john_wick_chapter_4_JW4_Unit_211027_00134_R2_rgb.jpeg?quality=90&strip=all&crop=19.583333333333%2C0%2C60.833333333333%2C100&w=2400",
     bio: "30+ years in agricultural export with a passion for sharing Malaysia's finest durians globally.",
   },
   {
-    name: "Datin Siti Nurhaliza",
+    name: "Mrs. Smith",
     role: "Co-Founder & COO",
     image:
-      "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=400&q=80",
+      "https://t4.ftcdn.net/jpg/08/23/95/89/360_F_823958944_1c9covIC7Tl7eyJtWoTiXc0L4vP6f43q.jpg",
     bio: "Expert in international food safety standards and quality assurance.",
   },
 ];
@@ -24,14 +25,14 @@ const team = [
     name: "Dr. Lim Wei Ming",
     role: "Head of Quality Control",
     image:
-      "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?auto=format&fit=crop&w=400&q=80",
+      "https://www.shutterstock.com/image-vector/default-avatar-photo-placeholder-grey-600nw-2007531536.jpg",
     expertise: "Food Science & Technology",
   },
   {
     name: "Maria Santos",
     role: "International Sales Director",
     image:
-      "https://images.unsplash.com/photo-1439337153520-7082a56a81f4?auto=format&fit=crop&w=400&q=80",
+      "https://img.myloview.com/canvas-prints/person-gray-photo-placeholder-woman-700-170461550.jpg",
     expertise: "Global Market Development",
   },
 ];
@@ -56,11 +57,11 @@ const exportCountries = [
 
 const mediaArticles = [
   {
-            title: "Duria Named Top Durian Exporter 2024",
+    title: "Duria Named Top Durian Exporter 2024",
     publication: "Asian Food & Agriculture Magazine",
     date: "March 2024",
     image:
-      "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=600&q=80",
+      "https://cdn.sinchew.com.my/wp-content/uploads/2024/06/e585a8efbc9ae4b8ade59bbde4b88ee5a4a7e9a9ace7adbee8aeaee5ae9ae4b9a6efbc8ce6a6b4e6a2bfe4b89ae88085e5b88ce69c9be5869ce7b2aee983a8e5b0bd-1.jpg",
   },
   {
     title: "Premium Malaysian Durians Reach Global Markets",
@@ -72,30 +73,33 @@ const mediaArticles = [
 ];
 
 const About = () => {
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
       <section className="py-20 bg-gradient-secondary text-secondary-foreground">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl sm:text-5xl font-bold mb-6">
-              About Duria
-            </h1>
+            <h1 className="text-4xl sm:text-5xl font-bold mb-6">About Duria</h1>
             <p className="text-xl leading-relaxed mb-8">
               Founded with a mission to share Malaysia's finest durians with the
               world, Duria has become the premier exporter of premium durian
               varieties, bringing authentic taste and quality to global markets.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <Badge className="bg-primary text-primary-foreground px-4 py-2">
+              <Badge className="bg-primary text-yellow-100 px-4 py-2">
                 <Award className="h-4 w-4 mr-2" />
                 ISO 22000 Certified
               </Badge>
-              <Badge className="bg-primary text-primary-foreground px-4 py-2">
+              <Badge className="bg-primary text-yellow-100 px-4 py-2">
                 <Globe className="h-4 w-4 mr-2" />
                 15+ Countries
               </Badge>
-              <Badge className="bg-primary text-primary-foreground px-4 py-2">
+              <Badge className="bg-primary text-yellow-100 px-4 py-2">
                 <Users className="h-4 w-4 mr-2" />
                 50+ Team Members
               </Badge>
@@ -212,7 +216,7 @@ const About = () => {
               {exportCountries.map((country) => (
                 <div
                   key={country}
-                  className="flex items-center space-x-2 bg-primary-foreground/10 rounded-lg p-3"
+                  className="flex items-center space-x-2 bg-primary-foreground/10 rounded-lg p-3 text-yellow-100"
                 >
                   <MapPin className="h-4 w-4" />
                   <span className="text-sm font-medium">{country}</span>

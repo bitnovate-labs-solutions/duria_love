@@ -121,13 +121,13 @@ const Index = () => {
                   </span>
                 </li>
               </ul>
-              <Button size="lg" asChild>
+              <Button size="lg" asChild className="text-yellow-50">
                 <a href="/about">Learn Our Story</a>
               </Button>
             </div>
             <div className="relative">
               <img
-                src="https://images.unsplash.com/photo-1486312338219-ce6862f44a7?auto=format&fit=crop&w=600&q=80"
+                src="https://kbtfoodpack.com/wp-content/uploads/2019/05/durian-packaging.jpg"
                 alt="Our team and facilities"
                 className="rounded-lg shadow-premium w-full"
               />

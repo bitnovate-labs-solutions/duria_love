@@ -9,7 +9,7 @@ const categories = [
     title: "Whole Fruits",
     description: "Fresh, premium durians in their natural form",
     image:
-      "https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1648299732724-b480cbb65548?q=80&w=1548&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     products: 12,
   },
   {
@@ -17,7 +17,7 @@ const categories = [
     title: "Durian Pulps",
     description: "Ready-to-eat premium durian flesh",
     image:
-      "https://images.unsplash.com/photo-1486312338219-ce6862f44a7?auto=format&fit=crop&w=800&q=80",
+      "https://tenggarafood.com/wp-content/uploads/2024/07/durian-1024x649.jpg",
     products: 8,
   },
   {
@@ -25,7 +25,7 @@ const categories = [
     title: "Consumables",
     description: "Ice cream, mochi, cakes and more",
     image:
-      "https://images.unsplash.com/photo-1518495973542-4542c06a5843?auto=format&fit=crop&w=800&q=80",
+      "https://images.unsplash.com/photo-1653565922895-4c08e12ea9f5?q=80&w=928&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     products: 15,
   },
   {
@@ -33,7 +33,7 @@ const categories = [
     title: "Festive & Gifting",
     description: "Mooncakes and premium gift sets",
     image:
-      "https://images.unsplash.com/photo-1497604401993-f2e92255cb0a?auto=format&fit=crop&w=800&q=80",
+      "https://topduriandelivery.com/wp-content/uploads/2021/07/5a9faef6-63ba-4430-af8f-3468bf058290-500x500.jpg",
     products: 6,
   },
 ];
@@ -68,30 +68,33 @@ export const ProductCategories = () => {
                   {category.products} products
                 </div>
               </div>
-              <CardContent className="p-6">
-                <h3 className="text-xl font-semibold text-foreground mb-2">
-                  {category.title}
-                </h3>
-                <p className="text-muted-foreground mb-4">
-                  {category.description}
-                </p>
-                <Button
-                  variant="outline"
-                  asChild
-                  className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-colors"
-                >
-                  <Link to={`/shop/${category.id}`}>
-                    Explore Collection
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
-                </Button>
+              <CardContent className="p-6 flex flex-col min-h-[200px]">
+                <div className="flex-1">
+                  <h3 className="text-xl font-semibold text-foreground mb-2">
+                    {category.title}
+                  </h3>
+                  <p className="text-muted-foreground mb-4">
+                    {category.description}
+                  </p>
+                </div>
+                <div className="mt-auto">
+                  <Button
+                    asChild
+                    className="w-full bg-primary text-yellow-50 hover:bg-primary/90 transition-colors"
+                  >
+                    <Link to={`/shop/${category.id}`}>
+                      Explore Collection
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Link>
+                  </Button>
+                </div>
               </CardContent>
             </Card>
           ))}
         </div>
 
         <div className="text-center mt-12">
-          <Button size="lg" asChild>
+          <Button size="lg" asChild className="text-yellow-50">
             <Link to="/shop">
               View All Products
               <ArrowRight className="ml-2 h-5 w-5" />

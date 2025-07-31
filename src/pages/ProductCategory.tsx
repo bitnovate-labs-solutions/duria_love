@@ -1,4 +1,5 @@
 import { useParams } from "react-router-dom";
+import { useEffect } from "react";
 import { ProductCard } from "@/components/ui/product-card";
 
 interface Product {
@@ -18,8 +19,7 @@ const categoryProducts: Record<string, Product[]> = {
     {
       id: "musang-king-whole",
       title: "Premium Musang King",
-      image:
-        "https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?auto=format&fit=crop&w=600&q=80",
+      image: "https://media.says.com/2025/03/E1fm537N-65a0.jpg",
       price: "$89.99/kg",
       description: "The crown jewel of durians with rich, creamy texture.",
       category: "Whole Fruits",
@@ -31,7 +31,7 @@ const categoryProducts: Record<string, Product[]> = {
       id: "d24-whole",
       title: "D24 Sultan",
       image:
-        "https://images.unsplash.com/photo-1486312338219-ce6862f44a7?auto=format&fit=crop&w=600&q=80",
+        "https://topduriandelivery.com/wp-content/uploads/2021/07/Musang-King-D197-2-musang-king-d-24-tip-top-durian-delivery.jpg",
       price: "$65.99/kg",
       description: "Sweet and creamy with a hint of bitterness.",
       category: "Whole Fruits",
@@ -44,7 +44,7 @@ const categoryProducts: Record<string, Product[]> = {
       id: "musang-king-pulp",
       title: "Musang King Pulp",
       image:
-        "https://images.unsplash.com/photo-1497604401993-f2e92255cb0a?auto=format&fit=crop&w=600&q=80",
+        "https://sb-assets.sgp1.cdn.digitaloceanspaces.com/product/main_image/34528/92c1c83c-7850-4fbc-86ca-cc020b504b47.jfif",
       price: "$45.99/pack",
       description: "Ready-to-eat premium pulp.",
       category: "Pulps",
@@ -62,6 +62,11 @@ const categoryTitles: Record<string, string> = {
 };
 
 const ProductCategory = () => {
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const { categoryId } = useParams<{ categoryId: string }>();
   const products = categoryProducts[categoryId || ""] || [];
   const title = categoryTitles[categoryId || ""] || "Products";
