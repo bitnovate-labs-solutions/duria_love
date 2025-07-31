@@ -8,14 +8,14 @@ const founders = [
     name: "Mr. John",
     role: "Founder & CEO",
     image:
-      "https://platform.theverge.com/wp-content/uploads/sites/2/chorus/uploads/chorus_asset/file/24510842/john_wick_chapter_4_JW4_Unit_211027_00134_R2_rgb.jpeg?quality=90&strip=all&crop=19.583333333333%2C0%2C60.833333333333%2C100&w=2400",
+      "https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&w=1160&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     bio: "30+ years in agricultural export with a passion for sharing Malaysia's finest durians globally.",
   },
   {
     name: "Mrs. Smith",
     role: "Co-Founder & COO",
     image:
-      "https://t4.ftcdn.net/jpg/08/23/95/89/360_F_823958944_1c9covIC7Tl7eyJtWoTiXc0L4vP6f43q.jpg",
+      "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=928&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     bio: "Expert in international food safety standards and quality assurance.",
   },
 ];
@@ -25,14 +25,14 @@ const team = [
     name: "Dr. Lim Wei Ming",
     role: "Head of Quality Control",
     image:
-      "https://www.shutterstock.com/image-vector/default-avatar-photo-placeholder-grey-600nw-2007531536.jpg",
+      "https://images.unsplash.com/photo-1654110455429-cf322b40a906?q=80&w=1160&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     expertise: "Food Science & Technology",
   },
   {
     name: "Maria Santos",
     role: "International Sales Director",
     image:
-      "https://img.myloview.com/canvas-prints/person-gray-photo-placeholder-woman-700-170461550.jpg",
+      "https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?q=80&w=1734&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     expertise: "Global Market Development",
   },
 ];
@@ -117,12 +117,15 @@ const About = () => {
             </h2>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
               {founders.map((founder) => (
-                <Card key={founder.name} className="overflow-hidden">
+                <Card
+                  key={founder.name}
+                  className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
+                >
                   <div className="flex flex-col md:flex-row">
                     <img
                       src={founder.image}
                       alt={founder.name}
-                      className="w-full md:w-48 h-64 md:h-auto object-cover"
+                      className="w-full md:w-48 h-64 md:h-48 object-cover"
                     />
                     <CardContent className="p-6 flex-1">
                       <h3 className="text-xl font-semibold mb-2">
